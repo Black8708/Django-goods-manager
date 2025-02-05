@@ -1,0 +1,251 @@
+{% extends "base.html" %}
+{% block bods %}
+
+    <div class="overall" >
+<h1>Black Imports & Exports</h1>
+<div class="home">
+<h1 ><button class="btn-login" onclick="siva()">create customer</button></h1>
+<i onclick="addcol()" class="fa-solid fa-filter filter_inner"></i>
+<span class="text_filte">Filter</span>
+<div class="container">
+    <div class="row">
+        <div class="col-12 newcol1">
+            <table class="table table-striped">
+        <tr>
+            <!-- <th>Id</th> -->
+            <th>Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Category</th>
+            <th>Supplier</th>
+            <th>Created_at</th>
+            <th>Updated_at</th>
+            <th>choices</th>
+            <th>UPDATE</th>
+            <th>DELETE</th>
+        </tr>    
+    {% for i in data %}    
+    <tr>
+        <!-- <td>{{i.id}}</td> -->
+        <td>{{i.Name}}</td>
+        <td>{{i.Quantity}}</td>
+        <td>{{i.Price}}</td>
+        <td>{{i.Category}}</td>
+        <td>{{i.Supplier}}</td>
+        <td>{{i.Created_at}}</td>
+        <td>{{i.Updated_at}}</td>
+        <td>{{i.choices}}</td>
+        <td> <a href="{% url 'update' i.id %}"><i class="fa-regular fa-pen-to-square"></i></a> </td>
+        <td> <a href="{% url 'delete' i.id %}"><i class="fa-solid fa-trash"></i></a> </td>        
+</tr>
+{% endfor %}   
+</table>
+</div>    
+<div class="col-2 newcol2">
+<form method="get">
+<div class="filter_inners"></div>
+<div><p>Name</p>
+   
+<select id="id_sales" name="name_filter_name" multiple="multiple" class="form-controlss select2" ></select>
+<div><p>Supplier</p>
+<select id="id_supplier" name="name_filter_supplier" multiple="multiple" class="form-controlss select2" ></select>
+<div><p>Category</p>
+    <select id="id_choices" name="name_filter_category" multiple="multiple" class="form-controlss select2" ></select>
+<button class="btn-sub">submit</button>
+</form>
+</div>
+</div>
+</div>
+</div>
+<div class="new">
+   
+    <div class="Sample_form">
+    
+        
+            <form method="post"   class="form" action="{% url 'goods' %}">
+                {% csrf_token %}
+                <h2>Customer Data</h2>
+               
+                    <table class="table_form">
+                        <tr >
+                            <th >Name</th>
+                            
+                        <th> <input type="text" name="Name"></th>
+                    </tr>
+                    <tr>
+                        <th>Quantity</th>
+                    <th> <input type="text" class="inner_input" name="Quantity"></th>
+                </tr>
+                <tr>
+                    <th>Price</th>
+                <th>    <input type="text" name="Price"><br></th>
+            </tr>
+            <tr>
+                <th>category</th>
+            <th> <input type="text" name="Category"></th>
+            </tr>
+            <tr>
+                <th>Supplier</th>
+            <th> <input type="text" name="Supplier"></th>
+            </tr>
+            <tr>
+                <th>Created At</th>
+            <th> <input type="time" name="Created_at"></th>
+            </tr>
+            <tr>
+            
+            
+            </tr>
+            <tr>
+                <th>Choices</th>
+              <th>  <select name="choices" id="id_choices">
+                    <option value="IN PROGRESS">in Progress</option>
+                  
+                    <option value="OUT FOR DELIVERY" selected="">Out for Delivery</option>
+                  
+                    <option value="DELIVERED">Delivered</option>
+                  
+                    <option value="CANCELLED">Cancelled</option>
+                  
+                  </select></th>
+            </tr>
+                    </table>
+                <div class="buttons_form">
+                    <button type="submit">Submit</button>
+                    <p style="color: #fff;" onclick="cancel()">cancel</p>
+                </div>
+            </form>
+            
+    </div>
+    </div>
+
+<Script>
+
+
+
+
+
+
+
+$(document).ready(function() {
+    $('#id_sales').select2({
+        ajax: {
+            url: "{% url 'table_filter' %}",
+            
+            dataType: 'json',
+            
+            data: function (params) {
+                
+                return {
+                    
+                    search_sales_id: params.term // Send the user input as the search term
+                };
+            },
+            processResults: function (data) {
+                console.log(data)
+                return data; // Pass the response data to Select2
+            },
+        },
+        minimumInputLength: 1
+    });
+
+    $('#id_supplier').select2({
+        ajax: {
+            url: "{% url 'table_filter' %}",
+            dataType: 'json',
+            
+            data: function (params) {
+                
+                return {
+                    
+                    search_supplier: params.term // Send the user input as the search term
+                };
+            },
+            processResults: function (data) {
+                console.log(data)
+                return data; // Pass the response data to Select2
+            },
+        },
+        minimumInputLength: 1
+    });
+
+    $('#id_choices').select2({
+        ajax: {
+            url: "{% url 'table_filter' %}",
+            dataType: 'json',
+            
+            data: function (params) {
+                
+                return {
+                    
+                    search_choices: params.term // Send the user input as the search term
+                };
+            },
+            processResults: function (data) {
+                console.log(data)
+                return data; // Pass the response data to Select2
+            },
+        },
+        minimumInputLength: 1
+    })
+});
+
+
+    function siva(){
+       const view=document.getElementsByClassName("Sample_form")[0]
+       view.style.display="flex"
+    }
+
+    function cancel(){
+         const view=document.getElementsByClassName("Sample_form")[0]
+       view.style.display="none"
+
+    }
+
+    function addcol(){
+        
+        const colelement=document.getElementsByClassName("newcol1")[0]
+        const colelements=document.getElementsByClassName("newcol2")[0]
+        console.log(colelement)
+        if(colelement.classList.contains("col-12")){
+            colelement.classList.remove("col-12")
+            colelement.classList.add("col-10")
+            colelements.style.display="block"
+            localStorage.setItem("solspan","True")
+        }
+        else{
+            
+            colelement.classList.remove("col-10")
+            colelement.classList.add("col-12")
+            colelements.style.display="none"
+            localStorage.setItem("solspan","False")
+        }
+    }
+function filterlayout(){
+ if(localStorage.getItem("solspan")==null){
+localStorage.setItem("solspan","False")
+ }
+ else{
+    const colelement=document.getElementsByClassName("newcol1")[0]
+    const colelements=document.getElementsByClassName("newcol2")[0]
+    if(localStorage.getItem("solspan")=="True"){
+        colelement.classList.remove("col-12")
+            colelement.classList.add("col-10")
+            colelements.style.display="block"
+    }
+    else{
+        colelement.classList.remove("col-10")
+            colelement.classList.add("col-12")
+            colelements.style.display="none"
+    }
+ }
+
+}
+document.addEventListener("DOMContentLoaded",filterlayout)
+
+</Script>
+
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,284 @@
+
+
+.new_sel{
+    background-color: #F8F9FA;
+   
+}
+.newcol2{display: none;}
+
+.filter_inner{
+
+   
+    padding: 10px 20px;
+   
+ 
+    margin-left: 88%;
+    
+}
+
+
+
+
+
+
+
+.text_filte{
+
+
+    color: #c7191996;
+    text-transform:capitalize ;
+    font-weight: 600;
+    margin-left: -20px
+}
+
+
+
+h1{
+    text-align: center;
+    padding: 30px 25px;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Nunito", sans-serif;
+}
+
+
+/* :root{
+    --bg-color:#1B3A57;
+    --text:#110404;
+    --white:#fff;
+
+
+    --active:#31f0f7;
+    --active-dark:#c71919;
+    --normal:#555;
+} */
+
+a{
+    text-decoration: none;
+    color: #0e0707;
+    transition: 0.5s;
+    
+}
+
+body{
+    background-color:#1B3A57;
+}
+
+header{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding:10px 5%;
+    background-color:rgb(113, 153, 153);
+}
+
+.logo{
+     cursor: pointer;
+     font-size:20px;
+     text-transform:uppercase;
+     letter-spacing: 5px;
+     color: #fff;
+     font-weight: bolder;
+     margin-right: auto;
+
+
+}
+
+
+.navlist{
+
+    list-style: none;
+}
+
+.navlist li{
+    display: inline-block;
+    padding:8px 30px;
+    letter-spacing:2px;
+}
+
+/* .navlist li a.active{
+    color:var(--active);
+} */
+
+.navlist li a:hover{
+    color:var(--active);
+    
+}
+
+.action{
+    
+    padding: 9px 5px;
+    letter-spacing:2px;
+    transition: 0.5s;
+    
+}
+.action:hover{
+    color:var(--active);
+}
+
+.footer{
+    margin-top: 400px;
+   
+  
+}
+.footer_bottom{
+
+
+    display: flex;
+    justify-content: right;
+    gap: 20px;
+   
+   
+}
+
+
+.Sample_form {
+    position: fixed;
+    display: flex !important;
+    align-items: center;
+    justify-content:center ;
+    width: 100%;
+    display: none;
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 10px;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%);
+ 
+    text-align: center;
+}
+
+.table_form th{
+ padding: 10px;
+
+ 
+  background-color:white;
+}
+
+
+.table_form{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.form-controlss{
+
+    width: 130px;
+   
+   
+   
+}
+
+.newcol2{
+
+    background-color: white;
+    overflow-y: scroll;
+    height: 300px;
+}
+
+.newcol2::-webkit-scrollbar {
+    display: none;
+}
+.form{
+    
+    background-color: #fff;
+    width: 400px;
+    height:460px;
+    border-radius: 10px;
+    padding-top: 20px;
+  padding-bottom: 30px;
+}
+
+
+.btn-sub{
+
+    background-color: rgb(21, 21, 211);
+    border: 2px solid rgb(21, 21, 211) ;
+    border-radius:10px;
+    padding: 5px 10px;
+    color: white;
+    margin-top: 10px;
+}
+.buttons_form{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    
+    
+}
+
+.buttons_form button{
+padding: 8px 15px;
+cursor: pointer;
+background-color: rgb(21, 21, 211);
+border: 2px solid rgb(21, 21, 211) ;
+color: #fff;
+border-radius: 10px;
+margin-top: -10px;
+}
+
+.buttons_form p{
+    padding: 8px 15px;
+    background-color:#c71919;
+    border: 2px solid #c71919 ;
+    cursor: pointer;
+    border-radius: 10px;
+    margin-top: 8px;
+    }
+
+.footer_one{
+
+display: flex;
+gap:200px;
+margin-bottom: 20px;
+
+} 
+
+.footer_bottom a:nth-child(1){
+    padding-left: 10px;
+    height:5px;
+ }
+
+.footer_bottom a:nth-child(2){
+   border-left: 1px solid black;
+   height:100%;
+   padding-left: 10px;
+  
+}
+.footer_bottom a:nth-child(3){
+    border-left: 1px solid black;
+    padding-left: 10px;
+    height:100%;
+
+ }
+ .footer_mid{
+    display: flex;
+    gap: 20px;
+ }
+
+ .btn-login{
+    background-color: rgb(55, 55, 168);
+    padding: 10px 30px;
+    font-size: 20px;
+    border: 2px solid white;
+    border-radius: 10px;
+    cursor: pointer;
+    color: white;
+   
+ }
+
+ .btn-login:hover{
+transform: scale(1.1);
+background-color: #c5a5a5;
+color: white;
+ }
