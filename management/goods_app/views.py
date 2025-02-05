@@ -13,6 +13,7 @@ class black(ListView):
     
     def get_queryset(self):
         print("haiii")
+        print("baii")
         tabledatas=items.objects.all()
         table_data=tabledatas
         if self.request.GET.get("name_filter_name"):
